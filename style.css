@@ -26,10 +26,7 @@
             }
             
             .logo {
-                width: 213px;
-                background-color: white;
-                border: 1px solid #cfcfcf;
-                border-radius: 9px;
+                width: 201px;
             }
             
             .settings-list {
@@ -227,6 +224,14 @@
                 width: 30%;
             }
 
+            .header {
+                display: flex;
+            }
+
+            .header-heading {
+                margin-top: 47px;
+            }
+
             @media (max-width: 640px) {
                 .passwd-buttons {
                     flex-direction: column;
@@ -248,5 +253,9 @@
 
                 .password-settings {
                     width: 92%;
+                }
+
+                .header-heading {
+                    display: none;
                 }
             }
