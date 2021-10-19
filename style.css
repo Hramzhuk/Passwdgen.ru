@@ -1,184 +1,219 @@
-    @font-face {
-        font-family: 'Roboto';
-        src: url(RobotoMono-Bold.ttf);
-    }
-    
-    body {
-        background-image: url(img/Site_background.jpg);
-        font-family: 'Roboto';
-    }
-    
-    button {
-        padding: 0;
-    }
-    
-    .password-settings {
-        background-color: #f2f2f2;
-        padding: 5px;
-        width: 401px;
-        padding-left: 20px;
-        border-radius: 9px;
-        width: 900px;
-        border: 1px solid #e7e7e7;
-        display: none;
-        margin-top: 12px;
-    }
-    
-    .logo {
-        color: #2196f3;
-    }
-    
-    .settings-list {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        font-size: 18px;
-    }
-    
-    .button {
-        height: 40px;
-        background-color: #cdcdcd;
-        border: 1px solid #c2c2c2;
-        padding: 8px;
-        font-size: 18px;
-        border-radius: 9px;
-        font-family: 'Roboto';
-    }
-    
-    input[type="checkbox"] {
-        display: none;
-    }
-    
-    label.btn {
-        color: #000;
-        cursor: default;
-        font-weight: normal;
-        line-height: 30px;
-        padding: 10px 0;
-        vertical-align: middle;
-        user-select: none;
-    }
-    
-    label.btn:before {
-        content: "Выключено";
-        border: 1px solid #9d0000;
-        background-color: red;
-        font-size: 18px;
-        margin-right: 12px;
-        padding: 3px;
-        width: 96px;
-        display: inline-block;
-        text-align: center;
-        margin-top: 3px;
-        border-radius: 9px;
-    }
-    
-    input:checked+label:before {
-        content: "Включено";
-        border: 1px solid #00b60e;
-        background-color: #00ff14;
-    }
-    
-    .logo-title {
-        color: #2196f3;
-        font-size: 18px;
-    }
-    
-    input {
-        border: 0px;
-        background-color: rgba(255, 255, 255, 0);
-        font-size: 18px;
-        font-family: 'Roboto';
-    }
-    
-    .content {
-        width: 50%;
-        margin: 0 auto;
-    }
-    
-    select {
-        border: 1px solid #d0d0d0;
-    }
-    
-    input[type=range] {
-        -webkit-appearance: none;
-        background-color: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 12px;
-        height: 6px;
-    }
-    
-    input[type=range]::-moz-range-thumb {
-        -webkit-appearance: none;
-        border: 1px solid #bdbdbd;
-        background-color: #d4d4d4;
-        border-radius: 9px;
-    }
-    
-    .text {
-        font-size: 18px;
-    }
-    
-    .margin-left {
-        margin-left: 8px;
-    }
-    
-    .margin-top {
-        margin-top: 8px;
-    }
-    
-    .image {
-        width: 435px;
-    }
-    
-    .warning {
-        color: red;
-        font-size: 18px;
-    }
-    
-    .safe {
-        background: #75ff7a;
-        padding: 2px;
-        padding-left: 9px;
-        font-size: 18px;
-        border: 1px solid #70ec74;
-        border-radius: 9px;
-    }
-    
-    .button-with-image {
-        width: 40px;
-        background-image: url(img/Settings_icon.png);
-        background-size: 32px;
-        background-repeat: no-repeat;
-        background-position: center center;
-    }
-    
-    .no-padding {
-        padding: 0;
-    }
-    
-    .heading {
-        font-size: 21px;
-    }
-    
-    .why-our-password-generator {
-        font-size: 18px;
-        list-style-image: url(img/Marker.png);
-    }
-    
-    .passwd-buttons {
-        display: flex;
-        justify-content: space-around;
-        width: 56%;
-    }
-    
-    .logo {
-        width: 213px;
-    }
-    
-    .generator {
-        background-color: white;
-        padding: 12px;
-        border: 1px solid #cfcfcf;
-        border-radius: 9px;
-    }
+            @font-face {
+                font-family: 'Roboto';
+                src: url(RobotoMono-Bold.ttf);
+            }
+            
+            body {
+                background-image: url(img/Site_background4.jpg);
+                font-family: 'Roboto';
+            }
+            
+            button {
+                padding: 0;
+            }
+            
+            .password-settings {
+                background-color: #f2f2f2;
+                padding: 5px;
+                width: 401px;
+                padding-left: 20px;
+                border-radius: 9px;
+                width: 97%;
+                border: 1px solid #e7e7e7;
+                display: none;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+            
+            .logo {
+                width: 213px;
+                background-color: white;
+                border: 1px solid #cfcfcf;
+                border-radius: 9px;
+            }
+            
+            .settings-list {
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                font-size: 18px;
+            }
+            
+            .button {
+                height: 40px;
+                background-color: #cdcdcd;
+                border: 1px solid #c2c2c2;
+                padding: 8px;
+                font-size: 18px;
+                border-radius: 9px;
+                font-family: 'Roboto';
+            }
+            
+            input[type="checkbox"] {
+                display: none;
+            }
+            
+            label.btn {
+                color: #000;
+                cursor: default;
+                font-weight: normal;
+                line-height: 30px;
+                padding: 10px 0;
+                vertical-align: middle;
+                user-select: none;
+            }
+            
+            label.btn:before {
+                content: "Выключено";
+                border: 1px solid #9d0000;
+                background-color: red;
+                font-size: 18px;
+                margin-right: 12px;
+                padding: 3px;
+                width: 96px;
+                display: inline-block;
+                text-align: center;
+                margin-top: 3px;
+                border-radius: 9px;
+            }
+            
+            input:checked+label:before {
+                content: "Включено";
+                border: 1px solid #00b60e;
+                background-color: #00ff14;
+            }
+            
+            .logo-title {
+                color: #2196f3;
+                font-size: 18px;
+            }
+            
+            input {
+                border: 0px;
+                background-color: rgba(255, 255, 255, 0);
+                font-size: 18px;
+                font-family: 'Roboto';
+                font-size: 25px;
+            }
+            
+            .content {
+                width: 50%;
+                margin: 0 auto;
+            }
+            
+            select {
+                border: 1px solid #d0d0d0;
+            }
+            
+            input[type=range] {
+                -webkit-appearance: none;
+                background-color: #ffffff;
+                border: 1px solid #e0e0e0;
+                border-radius: 12px;
+                height: 6px;
+            }
+            
+            input[type=range]::-moz-range-thumb {
+                -webkit-appearance: none;
+                border: 1px solid #bdbdbd;
+                background-color: #d4d4d4;
+                border-radius: 9px;
+            }
+            
+            .text {
+                font-size: 25px;
+            }
+            
+            .margin-left {
+                margin-left: 8px;
+            }
+            
+            .margin-top {
+                margin-top: 8px;
+            }
+            
+            .image {
+                width: 435px;
+            }
+            
+            .warning {
+                color: red;
+                font-size: 18px;
+            }
+            
+            .safe {
+                background: #75ff7a;
+                padding: 2px;
+                padding-left: 9px;
+                font-size: 18px;
+                border: 1px solid #70ec74;
+                border-radius: 9px;
+            }
+            
+            .button-with-image {
+                width: 40px;
+                background-image: url(img/Settings_icon.png);
+                background-size: 32px;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            
+            .no-padding {
+                padding: 0;
+            }
+            
+            .heading {
+                font-size: 21px;
+            }
+            
+            .why-our-password-generator {
+                font-size: 18px;
+                list-style-image: url(img/Marker.png);
+                font-family: 'Roboto';
+            }
+            
+            .passwd-buttons {
+                display: flex;
+                justify-content: space-around;
+                width: 86%;
+            }
+            
+            .generator {
+                background-color: white;
+                padding: 12px;
+                border: 1px solid #cfcfcf;
+                border-radius: 9px;
+                margin-top: 6px;
+            }
+            
+            p {
+                font-size: 18px;
+            }
+            
+            a {
+                color: #0088ff;
+            }
+            
+            .menu-element {
+                text-decoration: none;
+                margin-right: 12px;
+                color: #000;
+            }
+            
+            .menu-list {
+                display: flex;
+                list-style: none;
+                font-size: 18px;
+            }
+            
+            .number-input {
+                background-color: #fff;
+                border: 1px solid rgb(223, 223, 223);
+                margin-bottom: 5px;
+                font-size: 18px;
+            }
+
+            .download-button {
+                background: #00ff0a;
+                border: 1px solid #00ea09;
+            }

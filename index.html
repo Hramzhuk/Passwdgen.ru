@@ -14,18 +14,25 @@
     <div class="content">
         <img src="img/PasswordGeneratorLogo.png" class="logo">
         <div class="generator">
+            <ul class="menu-list">
+                <li>
+                    <a href="index.html" class="menu-element">Генератор паролей</a>
+                </li>
+                <li>
+                    <a href="RandomNumbersGenerator.html" class="menu-element">Генератор рандомных чисел</a>
+                </li>
+                <li>
+                    <a href="" class="menu-element">Генератор имен (Скоро)</a>
+                </li>
+            </ul>
+        </div>
+        <div class="generator">
             <p class="heading">Почему наш генератор паролей?</p>
             <ul class="why-our-password-generator">
                 <li>Мы не воруем ваш сгенерированный пароль</li>
                 <li>Наш генератор паролей генерирует безопасные пароли</li>
                 <li>У нас куча настроек чтобы сгенерировать пароль который вам нужен</li>
             </ul>
-            <p class="text">Ваш пароль: <input type="text" id="passwd" readonly></p>
-            <div class="passwd-buttons">
-                <button class="button" onclick="passwdGen()">Сгенерировать пароль</button>
-                <button class="button button-with-image" onclick="openSettings()"></button>
-                <button onclick="copyPasswd()" class="button">Скопировать пароль</button>
-            </div>
             <div class="password-settings" id="password-settings" style="display: none">
                 <p class="heading">Настройки пароля:</p>
                 <p class="warning">Внимание: Настройки пароля по умолчанию делают ваш пароль более безопасным.</p>
@@ -39,58 +46,98 @@
                         <label class="btn" for="read-password-setting">Читаемый пароль</label>
                     </li>
                     <li>
+                        <input type="checkbox" name="pin-code-setting" id="pin-code-setting">
+                        <label class="btn" for="pin-code-setting">Пин код</label>
+                    </li>
+                    <li>
                         <input id="symbols-count" onchange="changeSymbolCount()" type="range" max="32" min="8" value="10">
                         <label for="quantity-symbols-in-password-setting">Количество символов в пароле: <span id="symbols">10</span></label>
                     </li>
+                    <li>
+                        <input id="passwords-count" value="10" type="number" class="number-input" min="5" max="20">
+                        <label for="quantity-passwords-setting">Количество паролей</label>
+                    </li>
                 </ul>
             </div>
+            <div class="passwd-buttons">
+                <button class="button" onclick="passwdGen()">Сгенерировать пароль</button>
+                <button class="button button-with-image" onclick="openSettings()"></button>
+                <button onclick="copyPasswd()" class="button">Скопировать пароль</button>
+                <button onclick="downloadFile()" class="button download-button">Скачать файл с паролями</button>
+            </div>
+            <p class="text">Ваш пароль: <input type="text" id="passwd" readonly></p>
+            <div id="passwords">
+
+            </div>
+        </div>
+        <div class="generator">
+            <p class="heading">Как создать безопасный пароль?</p>
+            <p>Создать надежный пароль сложно, но если вы хотите его создать сами то вот вам пару советов по созданию надежного пароля. Ваш пароль минимум должен состоять из 8 символов, содержать маленькие и большие буквы, специальные символы и цифры.</p>
+        </div>
+        <div class="generator">
+            <p class="heading">Где хранить свои пароли?</p>
+            <p>Вопрос где хранить свои пароли уже давно решила программа KeePass. Её можно скачать на её официальном сайте <a href="https://keepass.info/">https://keepass.info/</a>.</p>
         </div>
     </div>
-
     <script>
+        let allGeneratedPasswords = "";
         function changeSymbolCount() {
-            let count = document.querySelector("#symbols-count").value;
+            let count = document.querySelector(" #symbols-count").value;
             document.querySelector("#symbols").innerHTML = count;
         }
 
         window.onload = setInterval(function() {
             changeSymbolCount()
-            document.querySelector('#passwd').style.width = document.querySelector("#symbols-count").value * 13 + "px";
+            document.querySelector('#passwd').style.width = document.querySelector("#symbols-count").value * 15 + "px";
         }, 10)
 
         function passwdGen() {
-            let passwordSymbols = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-            let specialSymbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", ";", ":", ",", "/", "?", "\\", "|", "`", "~", "[", "]", "{", "}", "."];
-            let count = document.querySelector("#symbols-count").value;
-            let passwd = '';
 
-            if (document.querySelector("#special-symbols-setting").checked == true) {
-                passwordSymbols = passwordSymbols.concat(specialSymbols);
-                console.log(passwordSymbols);
-            }
-            if (document.querySelector("#read-password-setting").checked == true) {
-                passwordSymbols.splice(passwordSymbols.indexOf("l"), 1);
-                passwordSymbols.splice(passwordSymbols.indexOf(0), 1);
-                passwordSymbols.splice(passwordSymbols.indexOf("i"), 1);
-                passwordSymbols.splice(passwordSymbols.indexOf("o"), 1);
-                console.log(passwordSymbols);
-            }
-            for (i = 0; i < count; i++) {
-                let symbol = passwordSymbols[getRandomIntInclusive(0, passwordSymbols.length - 1)]
-                    // while (passwd.indexOf(symbol) > 0) {
-                    //     symbol = passwordSymbols[getRandomIntInclusive(0, passwordSymbols.length - 1)]
-                    // }
-                getRandomIntInclusive(1, 2);
-                if (typeof symbol == "string") {
-                    if (getRandomIntInclusive(1, 2) == 1) {
-                        symbol = symbol.toUpperCase();
-                    } else {
-                        symbol = symbol.toLowerCase();
-                    }
+            let count2 = document.querySelector("#passwords-count").value;
+            console.log(count2);
+            let passwords = document.querySelector('#passwords');
+            passwords.innerHTML = "";
+            for (n = 0; n < count2; n++) {
+                let passwordSymbols = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+                let specialSymbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", ";", ":", ",", "/", "?", "\\", "|", "`", "~", "[", "]", "{", "}", "."];
+                let count = document.querySelector("#symbols-count").value;
+                let passwd = '';
+
+                if (document.querySelector("#special-symbols-setting").checked == true) {
+                    passwordSymbols = passwordSymbols.concat(specialSymbols);
+                    console.log(passwordSymbols);
                 }
-                passwd += symbol;
+                if (document.querySelector("#read-password-setting").checked == true) {
+                    passwordSymbols.splice(passwordSymbols.indexOf("l"), 1);
+                    passwordSymbols.splice(passwordSymbols.indexOf(0), 1);
+                    passwordSymbols.splice(passwordSymbols.indexOf("i"), 1);
+                    passwordSymbols.splice(passwordSymbols.indexOf("o"), 1);
+                    console.log(passwordSymbols);
+                }
+                if (document.querySelector("#pin-code-setting").checked == true) {
+                    let pinCodeNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+                    passwordSymbols = pinCodeNumbers
+                }
+
+                for (i = 0; i < count; i++) {
+                    let symbol = passwordSymbols[getRandomIntInclusive(0, passwordSymbols.length - 1)]
+                    getRandomIntInclusive(1, 2);
+                    if (typeof symbol == "string") {
+                        if (getRandomIntInclusive(1, 2) == 1) {
+                            symbol = symbol.toUpperCase();
+                        } else {
+                            symbol = symbol.toLowerCase();
+                        }
+                    }
+                    passwd += symbol;
+                }
+                // passwords += passwd
+                passwords.innerHTML += '<p>' + passwd + '</p>'
+                allGeneratedPasswords += passwd + "\n"
             }
-            document.querySelector("#passwd").value = passwd;
+            // document.querySelector("#passwd").value += passwords;
+            // document.querySelector("#passwd").style.background = "lime";
+
         }
 
         function getRandomIntInclusive(min, max) {
@@ -113,7 +160,39 @@
                 element.style.display = "none";
             }
         }
+
+        function downloadFile() {
+            var stroka = allGeneratedPasswords;
+            var blob = new Blob([stroka], {type: "text/plain"});
+            var link = document.createElement("a");
+            link.setAttribute("href", URL.createObjectURL(blob));
+            link.setAttribute("download", "passwords.txt");
+            link.click();
+        }
     </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(85975298, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/85975298" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <div class="footer">
+        © PasswdGen 2021
+    </div>
 </body>
 
 </html>

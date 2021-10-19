@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/PasswordGeneratorFavicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="content">
+        <img src="img/PasswordGeneratorLogo.png" class="logo">
+        <div class="generator">
+            <ul class="menu-list">
+                <li>
+                    <a href="index.html" class="menu-element">Генератор паролей</a>
+                </li>
+                <li>
+                    <a href="RandomNumbersGenerator.html" class=" menu-element">Генератор рандомных чисел</a>
+                </li>
+                <li>
+                    <a href="" class="menu-element">Генератор имен (Скоро)</a>
+                </li>
+            </ul>
+        </div>
+        <div class="generator">
+            <div class="password-settings" id="password-settings" style="display: none">
+                <p class="heading">Настройки рандомного числа:</p>
+                <ul class="settings-list">
+                    <li>
+                        <input id="min-number-count" value="1" class="number-input">
+                        <label for="quantity-symbols-in-password-setting">Минимальное число</label>
+                    </li>
+                    <li>
+                        <input id="max-number-count" value="10" class="number-input">
+                        <label for="quantity-symbols-in-password-setting">Максимальное число</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="passwd-buttons">
+                <button class="button" onclick="passwdGen()">Сгенерировать число</button>
+                <button class="button button-with-image" onclick="openSettings()"></button>
+                <button onclick="copyPasswd()" class="button">Скопировать число</button>
+            </div>
+            <p class="text">Ваше рандомное число: <input type="text" id="passwd" readonly></p>
+        </div>
+    </div>
+    <script>
+        function passwdGen() {
+            let passwd = '';
+            let minNumber = 0;
+            let maxNumber = 0;
+
+            minNumber = document.querySelector("#min-number-count").value;
+            maxNumber = document.querySelector("#max-number-count").value;
+
+            passwd += getRandomIntInclusive(minNumber, maxNumber);
+            document.querySelector("#passwd").value = passwd;
+            document.querySelector("#passwd").style.background = "lime";
+        }
+
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function copyPasswd() {
+            text = document.querySelector("#passwd")
+            text.select();
+            document.execCommand("copy")
+        }
+
+        function openSettings() {
+            element = document.querySelector("#password-settings");
+            if (element.style.display == "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript ">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script ", "https://mc.yandex.ru/metrika/tag.js ", "ym ");
+
+        ym(85975298, "init ", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/85975298 " style="position:absolute; left:-9999px; " alt=" " /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <div class="footer ">
+        © PasswdGen 2021
+    </div>
+</body>
+
+</html>
