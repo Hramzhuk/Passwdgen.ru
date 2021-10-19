@@ -217,3 +217,31 @@
                 background: #00ff0a;
                 border: 1px solid #00ea09;
             }
+
+            .no-download-button {
+                width: 53%;
+            }
+
+            @media (max-width: 640px) {
+                .passwd-buttons {
+                    flex-direction: column;
+                    width: 100%;
+                }
+                
+                .content {
+                    width: 100%;
+                    margin: 0;
+                }
+
+                .menu-list {
+                    flex-direction: column;
+                }
+
+                .button {
+                    margin-top: 5px;
+                }
+
+                .password-settings {
+                    width: 92%;
+                }
+            }
