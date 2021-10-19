@@ -43,9 +43,11 @@
             <div class="passwd-buttons no-download-button">
                 <button class="button" onclick="passwdGen()">Сгенерировать число</button>
                 <button class="button button-with-image" onclick="openSettings()"></button>
-                <button onclick="copyPasswd()" class="button">Скопировать число</button>
             </div>
-            <p class="text">Ваше рандомное число: <input type="text" id="passwd" readonly></p>
+            <p class="text">Ваше рандомное число:</p>
+            <div id="passwords">
+
+            </div>
         </div>
     </div>
     <script>
@@ -58,20 +60,14 @@
             maxNumber = document.querySelector("#max-number-count").value;
 
             passwd += getRandomIntInclusive(minNumber, maxNumber);
-            document.querySelector("#passwd").value = passwd;
-            document.querySelector("#passwd").style.background = "lime";
+            document.querySelector("#passwords").innerHTML = "<p>" + passwd + "</p>";
+            
         }
 
         function getRandomIntInclusive(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        function copyPasswd() {
-            text = document.querySelector("#passwd")
-            text.select();
-            document.execCommand("copy")
         }
 
         function openSettings() {

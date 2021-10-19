@@ -175,7 +175,7 @@
             .passwd-buttons {
                 display: flex;
                 justify-content: space-around;
-                width: 86%;
+                width: 62%;
             }
             
             .generator {
@@ -196,8 +196,13 @@
             
             .menu-element {
                 text-decoration: none;
-                margin-right: 12px;
                 color: #000;
+                margin-right: 18px;
+            }
+
+            .menu-element:hover {
+                border-bottom: 2px solid #cfcfcf;
+                padding-bottom: 10px;
             }
             
             .menu-list {
@@ -219,7 +224,7 @@
             }
 
             .no-download-button {
-                width: 53%;
+                width: 30%;
             }
 
             @media (max-width: 640px) {

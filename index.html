@@ -54,18 +54,17 @@
                         <label for="quantity-symbols-in-password-setting">Количество символов в пароле: <span id="symbols">10</span></label>
                     </li>
                     <li>
-                        <input id="passwords-count" value="10" type="number" class="number-input" min="5" max="20">
-                        <label for="quantity-passwords-setting">Количество паролей</label>
+                        <input id="passwords-count" value="1" class="number-input" >
+                        <label for="quantity-passwords-setting">Количество паролей (максимально 20 паролей)</label>
                     </li>
                 </ul>
             </div>
             <div class="passwd-buttons">
                 <button class="button" onclick="passwdGen()">Сгенерировать пароль</button>
                 <button class="button button-with-image" onclick="openSettings()"></button>
-                <button onclick="copyPasswd()" class="button">Скопировать пароль</button>
                 <button onclick="downloadFile()" class="button download-button">Скачать файл с паролями</button>
             </div>
-            <p class="text">Ваш пароль: <input type="text" id="passwd" readonly></p>
+            <p class="text">Ваш пароль:</p>
             <div id="passwords">
 
             </div>
@@ -88,12 +87,15 @@
 
         window.onload = setInterval(function() {
             changeSymbolCount()
-            document.querySelector('#passwd').style.width = document.querySelector("#symbols-count").value * 15 + "px";
         }, 10)
 
         function passwdGen() {
 
             let count2 = document.querySelector("#passwords-count").value;
+            if (count2 > 20) {
+                count2 = 20;
+                alert("Вы указали более 20 паролей так как стоит ограничение, будет сгенерировано 20 паролей.");
+            }
             console.log(count2);
             let passwords = document.querySelector('#passwords');
             passwords.innerHTML = "";
@@ -144,12 +146,6 @@
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        function copyPasswd() {
-            text = document.querySelector("#passwd")
-            text.select();
-            document.execCommand("copy")
         }
 
         function openSettings() {
