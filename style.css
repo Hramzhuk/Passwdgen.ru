@@ -94,7 +94,7 @@
             }
             
             .content {
-                width: 50%;
+                width: 72%;
                 margin: 0 auto;
             }
             
@@ -172,7 +172,7 @@
             .passwd-buttons {
                 display: flex;
                 justify-content: space-around;
-                width: 62%;
+                width: 43%;
             }
             
             .generator {
@@ -194,7 +194,7 @@
             .menu-element {
                 text-decoration: none;
                 color: #000;
-                margin-right: 18px;
+                margin-right: 10px;
             }
 
             .menu-element:hover {
@@ -221,7 +221,7 @@
             }
 
             .no-download-button {
-                width: 30%;
+                width: 21%;
             }
 
             .header {
@@ -232,7 +232,22 @@
                 margin-top: 47px;
             }
 
-            @media (max-width: 640px) {
+            .flex {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .footer-menu-list {
+                flex-direction: column;
+            }
+
+            .social-network-logo {
+                width: 29px;
+                height: 29px;
+            }
+
+            @media (max-width: 1000px) {
                 .passwd-buttons {
                     flex-direction: column;
                     width: 100%;
@@ -258,4 +273,14 @@
                 .header-heading {
                     display: none;
                 }
+
+                .flex {   
+                    flex-direction: column;
+                }
             }
+
+            /* @media (max-width: 661px) {
+                .passwd-buttons {
+                    width: 50%;
+                }
+            } */
