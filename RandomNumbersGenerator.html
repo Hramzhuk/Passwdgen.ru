@@ -33,7 +33,7 @@
             </ul>
         </div>
         <div class="generator">
-            <div class="password-settings" id="password-settings" style="display: none">
+            <div class="password-settings" id="password-settings" style="display: block">
                 <p class="heading">Настройки рандомного числа:</p>
                 <ul class="settings-list">
                     <li>
@@ -48,7 +48,6 @@
             </div>
             <div class="passwd-buttons">
                 <button class="button" onclick="passwdGen()">Сгенерировать число</button>
-                <button class="button button-with-image" onclick="openSettings()"></button>
             </div>
             <p class="text">Ваше рандомное число:</p>
             <div id="passwords">
@@ -69,9 +68,20 @@
             let passwd = '';
             let minNumber = 0;
             let maxNumber = 0;
+            let minNumberInput = document.querySelector("#min-number-count").value;
+            let maxNumberInput = document.querySelector("#max-number-count").value;
 
             minNumber = document.querySelector("#min-number-count").value;
             maxNumber = document.querySelector("#max-number-count").value;
+
+            if (minNumberInput.replace(/\s/g, '').length === 0 || isNaN(minNumberInput)) {
+                minNumber = 1;
+                alert("Вы ввели не число, будет сгенерировано число от 1.");
+            }
+            if (maxNumberInput.replace(/\s/g, '').length === 0 || isNaN(maxNumberInput)) {
+                maxNumber = 10;
+                alert("Вы ввели не число, будет сгенерировано число до 10.");
+            }
 
             passwd += getRandomIntInclusive(minNumber, maxNumber);
             document.querySelector("#passwords").innerHTML = "<p>" + passwd + "</p>";

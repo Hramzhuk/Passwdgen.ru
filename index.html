@@ -109,7 +109,7 @@
             let count2 = document.querySelector("#passwords-count").value;
             if (count2.replace(/\s/g, '').length === 0 || isNaN(count2)) {
                 count2 = 20;
-                alert("Вы ввели не число, Будет сгенерировано 20 паролей.");
+                alert("Вы ввели не число, будет сгенерировано 20 паролей.");
             } else {
                 if (count2 > 20) {
                     count2 = 20;
