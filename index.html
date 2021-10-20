@@ -106,13 +106,16 @@
         }, 10)
 
         function passwdGen() {
-
             let count2 = document.querySelector("#passwords-count").value;
-            if (count2 > 20) {
+            if (count2.replace(/\s/g, '').length === 0 || isNaN(count2)) {
                 count2 = 20;
-                alert("Вы указали более 20 паролей так как стоит ограничение, будет сгенерировано 20 паролей.");
+                alert("Вы ввели не число, Будет сгенерировано 20 паролей.");
+            } else {
+                if (count2 > 20) {
+                    count2 = 20;
+                    alert("Вы указали более 20 паролей так как стоит ограничение, будет сгенерировано 20 паролей.");
+                }
             }
-            console.log(count2);
             let passwords = document.querySelector('#passwords');
             passwords.innerHTML = "";
             for (n = 0; n < count2; n++) {
@@ -123,14 +126,12 @@
 
                 if (document.querySelector("#special-symbols-setting").checked == true) {
                     passwordSymbols = passwordSymbols.concat(specialSymbols);
-                    console.log(passwordSymbols);
                 }
                 if (document.querySelector("#read-password-setting").checked == true) {
                     passwordSymbols.splice(passwordSymbols.indexOf("l"), 1);
                     passwordSymbols.splice(passwordSymbols.indexOf(0), 1);
                     passwordSymbols.splice(passwordSymbols.indexOf("i"), 1);
                     passwordSymbols.splice(passwordSymbols.indexOf("o"), 1);
-                    console.log(passwordSymbols);
                 }
                 if (document.querySelector("#pin-code-setting").checked == true) {
                     let pinCodeNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
