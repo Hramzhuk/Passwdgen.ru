@@ -272,6 +272,10 @@
                 .flex {   
                     flex-direction: column;
                 }
+
+                .menu-element:hover {
+                    border-bottom: 0;
+                }
             }
 
             /* @media (max-width: 661px) {
