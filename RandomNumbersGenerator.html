@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PasswdGen - генератор паролей онлайн</title>
+    <title>PasswdGen - генератор паролей, чисел, имен онлайн</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/PasswordGeneratorFavicon.png" type="image/png">
 </head>
@@ -14,7 +14,7 @@
     <div class="content">
         <div class="generator header">
             <a href="/"><img src="img/PasswordGeneratorLogo.png" class="logo" alt="Password Generator"></a>
-            <h1 class="header-heading">PasswdGen - генератор паролей онлайн</h1>
+            <h1 class="header-heading">PasswdGen - генератор паролей, чисел, имен онлайн</h1>
         </div>
         <div class="generator">
             <ul class="menu-list">
@@ -47,7 +47,7 @@
                 </ul>
             </div>
             <div class="passwd-buttons">
-                <button class="button" onclick="passwdGen()">Сгенерировать число</button>
+                <button class="button" onclick="numberGen()">Сгенерировать число</button>
             </div>
             <p class="text">Ваше рандомное число:</p>
             <div id="passwords">
@@ -63,46 +63,6 @@
             </div>
         </div>
     </div>
-    <script>
-        function passwdGen() {
-            let passwd = '';
-            let minNumber = 0;
-            let maxNumber = 0;
-            let minNumberInput = document.querySelector("#min-number-count").value;
-            let maxNumberInput = document.querySelector("#max-number-count").value;
-
-            minNumber = document.querySelector("#min-number-count").value;
-            maxNumber = document.querySelector("#max-number-count").value;
-
-            if (minNumberInput.replace(/\s/g, '').length === 0 || isNaN(minNumberInput)) {
-                minNumber = 1;
-                alert("Вы ввели не число, будет сгенерировано число от 1.");
-            }
-            if (maxNumberInput.replace(/\s/g, '').length === 0 || isNaN(maxNumberInput)) {
-                maxNumber = 10;
-                alert("Вы ввели не число, будет сгенерировано число до 10.");
-            }
-
-            passwd += getRandomIntInclusive(minNumber, maxNumber);
-            document.querySelector("#passwords").innerHTML = "<p>" + passwd + "</p>";
-            
-        }
-
-        function getRandomIntInclusive(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        function openSettings() {
-            element = document.querySelector("#password-settings");
-            if (element.style.display == "none") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
-        }
-    </script>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m, e, t, r, i, k, a) {
@@ -123,6 +83,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/85975298" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+    <script src="script.js"></script>
 </body>
 
 </html>

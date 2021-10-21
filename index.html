@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PasswdGen - генератор паролей онлайн</title>
+    <title>PasswdGen - генератор паролей, чисел, имен онлайн</title>
     <meta name="description" content="PasswdGen помогает генерировать надежные пароли до 32 символов.">
     <meta name="Keywords" content="генератор паролей, генератор надежных паролей, сгенерировать пароль, password generator, генерация пароля, рандомайзер паролей, рандомный пароль, 6, 8, 10, 12, 20">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +16,7 @@
     <div class="content">
         <div class="generator header">
             <a href="/"><img src="img/PasswordGeneratorLogo.png" class="logo" alt="Password Generator"></a>
-            <h1 class="header-heading">PasswdGen - генератор паролей онлайн</h1>
+            <h1 class="header-heading">PasswdGen - генератор паролей, чисел, имен онлайн</h1>
         </div>
         <div class="generator">
             <ul class="menu-list">
@@ -72,9 +72,7 @@
                 <button onclick="downloadFile()" class="button download-button">Скачать файл с паролями</button>
             </div>
             <p class="text">Ваш пароль:</p>
-            <div id="passwords">
-
-            </div>
+            <div id="passwords"></div>
         </div>
         <div class="generator">
             <p class="heading">Как создать безопасный пароль?</p>
@@ -95,92 +93,10 @@
     </div>
     <script>
         let allGeneratedPasswords = "";
-        function changeSymbolCount() {
-            let count = document.querySelector(" #symbols-count").value;
-            document.querySelector("#symbols").innerHTML = count;
-        }
 
         window.onload = setInterval(function() {
             changeSymbolCount()
         }, 10)
-
-        function passwdGen() {
-            let count2 = document.querySelector("#passwords-count").value;
-            if (count2.replace(/\s/g, '').length === 0 || isNaN(count2)) {
-                count2 = 20;
-                alert("Вы ввели не число, будет сгенерировано 20 паролей.");
-            } else {
-                if (count2 > 20) {
-                    count2 = 20;
-                    alert("Вы указали более 20 паролей так как стоит ограничение, будет сгенерировано 20 паролей.");
-                }
-            }
-            let passwords = document.querySelector('#passwords');
-            passwords.innerHTML = "";
-            for (n = 0; n < count2; n++) {
-                let passwordSymbols = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-                let specialSymbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", ";", ":", ",", "/", "?", "\\", "|", "`", "~", "[", "]", "{", "}", "."];
-                let count = document.querySelector("#symbols-count").value;
-                let passwd = '';
-
-                if (document.querySelector("#special-symbols-setting").checked == true) {
-                    passwordSymbols = passwordSymbols.concat(specialSymbols);
-                }
-                if (document.querySelector("#read-password-setting").checked == true) {
-                    passwordSymbols.splice(passwordSymbols.indexOf("l"), 1);
-                    passwordSymbols.splice(passwordSymbols.indexOf(0), 1);
-                    passwordSymbols.splice(passwordSymbols.indexOf("i"), 1);
-                    passwordSymbols.splice(passwordSymbols.indexOf("o"), 1);
-                }
-                if (document.querySelector("#pin-code-setting").checked == true) {
-                    let pinCodeNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-                    passwordSymbols = pinCodeNumbers
-                }
-
-                for (i = 0; i < count; i++) {
-                    let symbol = passwordSymbols[getRandomIntInclusive(0, passwordSymbols.length - 1)]
-                    getRandomIntInclusive(1, 2);
-                    if (typeof symbol == "string") {
-                        if (getRandomIntInclusive(1, 2) == 1) {
-                            symbol = symbol.toUpperCase();
-                        } else {
-                            symbol = symbol.toLowerCase();
-                        }
-                    }
-                    passwd += symbol;
-                }
-                // passwords += passwd
-                passwords.innerHTML += '<p>' + passwd + '</p>'
-                allGeneratedPasswords += passwd + "\n"
-            }
-            // document.querySelector("#passwd").value += passwords;
-            // document.querySelector("#passwd").style.background = "lime";
-
-        }
-
-        function getRandomIntInclusive(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        function openSettings() {
-            element = document.querySelector("#password-settings");
-            if (element.style.display == "none") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
-        }
-
-        function downloadFile() {
-            var stroka = allGeneratedPasswords;
-            var blob = new Blob([stroka], {type: "text/plain"});
-            var link = document.createElement("a");
-            link.setAttribute("href", URL.createObjectURL(blob));
-            link.setAttribute("download", "passwords.txt");
-            link.click();
-        }
     </script>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -202,6 +118,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/85975298" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+    <script src="script.js"></script>
 </body>
 
 </html>

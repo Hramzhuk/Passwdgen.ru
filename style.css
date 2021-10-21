@@ -193,8 +193,9 @@
             .menu-element {
                 text-decoration: none;
                 color: #000;
-                margin-right: 10px;
             }
+            
+            
 
             .menu-element:hover {
                 border-bottom: 2px solid #cfcfcf;
@@ -207,6 +208,14 @@
                 font-size: 18px;
             }
             
+            .menu-list li:not(:last-child):after {
+                content: "*";
+            }
+
+            .menu-list li:not(:first-child) {
+                margin-left: 10px;
+            }
+
             .number-input {
                 background-color: #fff;
                 border: 1px solid rgb(223, 223, 223);
@@ -242,6 +251,18 @@
                 height: 29px;
             }
 
+            .code {
+                font-size: 18px;
+                font-family: 'Roboto';
+                list-style: decimal;
+                color: green;
+                background: #f4f4f4;
+            }
+
+            .code-element {
+                border-left: 2px solid green;
+                padding-left: 12px;
+            }
             @media (max-width: 1000px) {
                 .passwd-buttons {
                     flex-direction: column;
