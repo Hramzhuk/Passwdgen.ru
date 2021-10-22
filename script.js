@@ -51,7 +51,7 @@ function passwdGen() {
 }
 
 function changeSymbolCount() {
-    let count = document.querySelector(" #symbols-count").value;
+    let count = document.querySelector("#symbols-count").value;
     document.querySelector("#symbols").innerHTML = count;
 }
 
