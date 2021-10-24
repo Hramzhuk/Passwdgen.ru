@@ -195,13 +195,6 @@
                 color: #000;
             }
             
-            
-
-            .menu-element:hover {
-                border-bottom: 2px solid #cfcfcf;
-                padding-bottom: 10px;
-            }
-            
             .menu-list {
                 display: flex;
                 list-style: none;
