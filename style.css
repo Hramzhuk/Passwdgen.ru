@@ -195,6 +195,10 @@
                 color: #000;
             }
             
+            .menu-element:hover {
+                border-bottom: 2px solid rgb(212, 212, 212);
+            }
+
             .menu-list {
                 display: flex;
                 list-style: none;
