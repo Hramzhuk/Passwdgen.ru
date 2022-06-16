@@ -174,7 +174,7 @@
                 justify-content: space-around;
             }
             
-            .generator {
+            .content-visible-div {
                 background-color: white;
                 padding: 12px;
                 border: 1px solid #cfcfcf;
@@ -246,20 +246,6 @@
             .social-network-logo {
                 width: 29px;
                 height: 29px;
-            }
-
-            .code {
-                font-size: 18px;
-                font-family: 'Roboto';
-                list-style: decimal;
-                color: green;
-                background: #f4f4f4;
-            }
-
-            .code-element {
-                border-left: 2px solid green;
-                padding-left: 12px;
-                font-size: 18px;
             }
 
             .margin-bottom {
